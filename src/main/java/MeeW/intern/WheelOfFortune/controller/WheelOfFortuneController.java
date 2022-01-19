@@ -2,6 +2,7 @@ package MeeW.intern.WheelOfFortune.controller;
 
 
 import MeeW.intern.WheelOfFortune.entities.WheelOfFortune;
+import MeeW.intern.WheelOfFortune.exceptions.WheelNotFoundException;
 import MeeW.intern.WheelOfFortune.repository.WheelOfFortuneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
@@ -49,8 +50,8 @@ public class WheelOfFortuneController {
     public EntityModel<WheelOfFortune> retrieveWheel(@PathVariable int id)
     {
         Optional<WheelOfFortune> wheel = repo.findById(id);
-        if (!wheel.isPresent())
-            throw new RuntimeException();
+        if (wheel.isEmpty())
+            throw new WheelNotFoundException();
 
         EntityModel<WheelOfFortune> resource = EntityModel.of(wheel.get()); 						// get the resource
         WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllStudents()); // get link
