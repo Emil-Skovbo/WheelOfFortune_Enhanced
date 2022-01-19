@@ -39,7 +39,7 @@ public class WheelOfFortuneController {
 
 
     @GetMapping("/")
-    public List<WheelOfFortune> retrieveAllStudents()
+    public List<WheelOfFortune> retrieveAllWheelOfFortunes()
     {
         return repo.findAll();
     }
@@ -54,8 +54,8 @@ public class WheelOfFortuneController {
             throw new WheelNotFoundException();
 
         EntityModel<WheelOfFortune> resource = EntityModel.of(wheel.get()); 						// get the resource
-        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllStudents()); // get link
-        resource.add(linkTo.withRel("all-students"));										// append the link
+        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllWheelOfFortunes()); // get link
+        resource.add(linkTo.withRel("all-wheelOfFortunes"));										// append the link
 
         Link selfLink = linkTo(methodOn(this.getClass()).retrieveWheel(id)).withSelfRel(); //add also link to self
         resource.add(selfLink);
