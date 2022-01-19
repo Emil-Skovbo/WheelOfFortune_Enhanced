@@ -1,6 +1,7 @@
 package MeeW.intern.WheelOfFortune.controller;
 
 import MeeW.intern.WheelOfFortune.entities.Field;
+import MeeW.intern.WheelOfFortune.exceptions.FieldNotFoundException;
 import MeeW.intern.WheelOfFortune.repository.FieldRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
