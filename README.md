@@ -1,15 +1,17 @@
 # MeeW WheelOfFortuneProject
 
-I dette projekt har vi vidre udviklet på WheelOfFortune projektet. vi har tilføjet en mysql database som gemmer de forskellige værdiger.
+I dette projekt har vi videre udviklet på WheelOfFortune projektet. Vi har tilføjet en mysql database som gemmer de forskellige værdiger. fået backend hosted med AWS og skrevet en frontend med REACT som kan findes [Her](https://github.com/NoellZane/WheelOfFortuneFrontend)
 
 ## Teknologier
 
-Java JDK 11 \
+Java JDK 17 \
 Spring Boot v2.5.6 \
 HATEOAS \
 junit 5 \
 Docker \
-MySQL 
+MySQL \
+AWS \
+
 
 docker run -d --name MeeWWheelOfFortuneMySQL -e MYSQL_ROOT_PASSWORD=meew123 -p 3307:3306 mysql
 ## Guide
