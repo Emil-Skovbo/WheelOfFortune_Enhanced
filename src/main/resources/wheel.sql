@@ -41,3 +41,4 @@ INSERT INTO field (name, field_value, wheel_id) VALUES ('Electric Shaver', 2000,
 INSERT INTO field (name, field_value, wheel_id) VALUES ('PC Monitor', 2500, 1);
 INSERT INTO field (name, field_value, wheel_id) VALUES ('Fridge', 3000, 1);
 INSERT INTO field (name, field_value, wheel_id) VALUES ('Dud', 0, 1);
+
