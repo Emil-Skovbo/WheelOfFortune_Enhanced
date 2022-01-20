@@ -1,7 +1,6 @@
 package MeeW.intern.WheelOfFortune.controller;
 
 import MeeW.intern.WheelOfFortune.entities.Winner;
-import MeeW.intern.WheelOfFortune.exceptions.WheelNotFoundException;
 import MeeW.intern.WheelOfFortune.exceptions.WinnerNotFoundException;
 import MeeW.intern.WheelOfFortune.repository.WinnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/winner")
 @ComponentScan("com.example")
