@@ -19,7 +19,7 @@ import java.util.Optional;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/wof")
 public class WheelOfFortuneController {
@@ -28,7 +28,8 @@ public class WheelOfFortuneController {
     WheelOfFortuneRepository repo;
 
     @GetMapping("/")
-    public List<WheelOfFortune> retrieveAllStudents() {
+    public List<WheelOfFortune> retrieveAllWheelOfFortunes()
+    {
         return repo.findAll();
     }
 
@@ -40,9 +41,9 @@ public class WheelOfFortuneController {
         if (wheel.isEmpty())
             throw new WheelNotFoundException();
 
-        EntityModel<WheelOfFortune> resource = EntityModel.of(wheel.get());                        // get the resource
-        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllStudents()); // get link
-        resource.add(linkTo.withRel("all-students"));                                        // append the link
+        EntityModel<WheelOfFortune> resource = EntityModel.of(wheel.get()); 						// get the resource
+        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllWheelOfFortunes()); // get link
+        resource.add(linkTo.withRel("all-wheelOfFortunes"));										// append the link
 
         Link selfLink = linkTo(methodOn(this.getClass()).retrieveWheel(id)).withSelfRel(); //add also link to self
         resource.add(selfLink);
