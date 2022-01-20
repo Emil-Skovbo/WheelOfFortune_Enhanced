@@ -1,5 +1,6 @@
 package MeeW.intern.WheelOfFortune;
 
+import MeeW.intern.WheelOfFortune.controller.WheelOfFortuneController;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+@WebMvcTest(WheelOfFortuneController.class)
 @Disabled
 public class WebLayerTest {
 
