@@ -22,15 +22,16 @@ public class FieldController {
     @Autowired
     FieldRepository repo;
 
-    public List<Field> retrieveAllFields(){
-        if (repo.findAll().isEmpty()){
+    @RequestMapping("/")
+    public List<Field> retrieveAllFields() {
+        if (repo.findAll().isEmpty()) {
             throw new RuntimeException();
         }
         return repo.findAll();
     }
 
     @GetMapping("/{id}")
-    public EntityModel<Field> retrieveField(@PathVariable int id){
+    public EntityModel<Field> retrieveField(@PathVariable int id) {
         Optional<Field> field = repo.findById(id);
         if (field.isEmpty())
             throw new FieldNotFoundException();

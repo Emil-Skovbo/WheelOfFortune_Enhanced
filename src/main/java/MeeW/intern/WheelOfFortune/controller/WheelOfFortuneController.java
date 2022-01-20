@@ -24,19 +24,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/wof")
 public class WheelOfFortuneController {
 
-    //Instance of the object
-    //WheelOfFortune wof = new WheelOfFortune();
-
     @Autowired
     WheelOfFortuneRepository repo;
-
-//    //API endpoint for spinning the wheel of fortune. http://localhost:8080/wof/spin
-//    @GetMapping("/spin")
-//    public int spinWheelOfFortune()
-//    {
-//        return wof.spin();
-//    }
-
 
     @GetMapping("/")
     public List<WheelOfFortune> retrieveAllWheelOfFortunes()
@@ -47,8 +36,7 @@ public class WheelOfFortuneController {
     // This is the only method, which returns hyperlinks, for now
     // If the resource is found, a link to its 'family' is appended to its native load
     @GetMapping("/{id}")
-    public EntityModel<WheelOfFortune> retrieveWheel(@PathVariable int id)
-    {
+    public EntityModel<WheelOfFortune> retrieveWheel(@PathVariable int id) {
         Optional<WheelOfFortune> wheel = repo.findById(id);
         if (wheel.isEmpty())
             throw new WheelNotFoundException();
@@ -80,7 +68,7 @@ public class WheelOfFortuneController {
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateWheelOfFortune(@RequestBody WheelOfFortune WheelOfFortune, @PathVariable int id) {
         Optional<MeeW.intern.WheelOfFortune.entities.WheelOfFortune> wheelOfFortuneOptional = repo.findById(id);
-        if (!wheelOfFortuneOptional.isPresent())
+        if (wheelOfFortuneOptional.isEmpty())
             return ResponseEntity.notFound().build();
         WheelOfFortune.setId(id);
         repo.save(WheelOfFortune);
