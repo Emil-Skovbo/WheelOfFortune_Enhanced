@@ -20,10 +20,9 @@ public class HttpRequestTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Disabled
     @Test
-    public void greetingShouldReturnDefaultMessage() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/",
+    public void wheelOfFortuneExistOnWheelOfFortunesGetEndPoint() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/wheelOfFortunes",
                 String.class)).contains("Wheel of Fortune");
     }
 }

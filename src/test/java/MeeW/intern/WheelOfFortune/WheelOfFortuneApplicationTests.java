@@ -17,7 +17,6 @@ class WheelOfFortuneApplicationTests {
     @Test
     void contextLoads() {
         assertThat(controller).isNotNull();
-        assertThat(controller).isNotNull();
 
     }
 
