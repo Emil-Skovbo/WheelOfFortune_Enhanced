@@ -22,6 +22,7 @@ public class FieldController {
     @Autowired
     FieldRepository repo;
 
+    @RequestMapping("/")
     public List<Field> retrieveAllFields() {
         if (repo.findAll().isEmpty()) {
             throw new RuntimeException();
