@@ -24,38 +24,25 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/wof")
 public class WheelOfFortuneController {
 
-    //Instance of the object
-    //WheelOfFortune wof = new WheelOfFortune();
-
     @Autowired
     WheelOfFortuneRepository repo;
 
-//    //API endpoint for spinning the wheel of fortune. http://localhost:8080/wof/spin
-//    @GetMapping("/spin")
-//    public int spinWheelOfFortune()
-//    {
-//        return wof.spin();
-//    }
-
-
     @GetMapping("/")
-    public List<WheelOfFortune> retrieveAllStudents()
-    {
+    public List<WheelOfFortune> retrieveAllStudents() {
         return repo.findAll();
     }
 
     // This is the only method, which returns hyperlinks, for now
     // If the resource is found, a link to its 'family' is appended to its native load
     @GetMapping("/{id}")
-    public EntityModel<WheelOfFortune> retrieveWheel(@PathVariable int id)
-    {
+    public EntityModel<WheelOfFortune> retrieveWheel(@PathVariable int id) {
         Optional<WheelOfFortune> wheel = repo.findById(id);
         if (wheel.isEmpty())
             throw new WheelNotFoundException();
 
-        EntityModel<WheelOfFortune> resource = EntityModel.of(wheel.get()); 						// get the resource
+        EntityModel<WheelOfFortune> resource = EntityModel.of(wheel.get());                        // get the resource
         WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllStudents()); // get link
-        resource.add(linkTo.withRel("all-students"));										// append the link
+        resource.add(linkTo.withRel("all-students"));                                        // append the link
 
         Link selfLink = linkTo(methodOn(this.getClass()).retrieveWheel(id)).withSelfRel(); //add also link to self
         resource.add(selfLink);
@@ -80,7 +67,7 @@ public class WheelOfFortuneController {
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateWheelOfFortune(@RequestBody WheelOfFortune WheelOfFortune, @PathVariable int id) {
         Optional<MeeW.intern.WheelOfFortune.entities.WheelOfFortune> wheelOfFortuneOptional = repo.findById(id);
-        if (!wheelOfFortuneOptional.isPresent())
+        if (wheelOfFortuneOptional.isEmpty())
             return ResponseEntity.notFound().build();
         WheelOfFortune.setId(id);
         repo.save(WheelOfFortune);

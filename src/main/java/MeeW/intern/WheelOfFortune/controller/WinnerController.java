@@ -1,7 +1,6 @@
 package MeeW.intern.WheelOfFortune.controller;
 
 import MeeW.intern.WheelOfFortune.entities.Winner;
-import MeeW.intern.WheelOfFortune.exceptions.WheelNotFoundException;
 import MeeW.intern.WheelOfFortune.exceptions.WinnerNotFoundException;
 import MeeW.intern.WheelOfFortune.repository.WinnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class WinnerController {
 
     @GetMapping("/")
     public List<Winner> retrieveAllWinners() {
-        if (repo.findAll().isEmpty()){
+        if (repo.findAll().isEmpty()) {
             throw new WinnerNotFoundException();
         }
         return repo.findAll();
