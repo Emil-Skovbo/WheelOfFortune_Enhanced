@@ -22,7 +22,7 @@ public class WinnerController {
 
     @GetMapping("/")
     public List<Winner> retrieveAllWinners() {
-        if (repo.findAll().isEmpty()){
+        if (repo.findAll().isEmpty()) {
             throw new WinnerNotFoundException();
         }
         return repo.findAll();
