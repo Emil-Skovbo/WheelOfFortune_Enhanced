@@ -14,6 +14,6 @@ public class Field {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int fieldValue;
+    private int field_value;
 
 }

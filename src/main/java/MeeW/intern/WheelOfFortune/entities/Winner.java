@@ -6,16 +6,17 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class WheelOfFortune {
-
+public class Winner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
 
-    public WheelOfFortune() {
+    @ManyToOne
+    private Field field;
+
+    public Winner() {
         super();
     }
-
 }

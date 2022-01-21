@@ -8,13 +8,14 @@
         <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>WorldChampions</groupId>
-    <artifactId>students</artifactId>
+    <groupId>MeeW</groupId>
+    <artifactId>Intern</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>students</name>
-    <description>students</description>
+    <name>WheelOfFortune</name>
+    <description>WheelOfFortune project</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
+        <maven.compiler.release>11</maven.compiler.release>
     </properties>
     <dependencies>
         <dependency>
