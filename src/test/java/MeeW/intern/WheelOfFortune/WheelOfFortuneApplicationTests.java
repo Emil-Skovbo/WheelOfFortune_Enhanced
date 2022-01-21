@@ -11,13 +11,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 class WheelOfFortuneApplicationTests {
 
     @Autowired
-    private WheelOfFortuneController controller;
+    private WheelOfFortuneController wheelOfFortuneControllercontroller;
 
+    @Autowired
+    private WheelOfFortuneController fieldController;
+
+    @Autowired
+    private WheelOfFortuneController WinnerController;
 
     @Test
-    void contextLoads() {
-        assertThat(controller).isNotNull();
-
+    void WheelOfFortuneControllerIsNotNull() {
+        assertThat(wheelOfFortuneControllercontroller).isNotNull();
     }
+
+    @Test
+    void FieldControllerIsNotNull() {
+        assertThat(fieldController).isNotNull();
+    }
+
+    @Test
+    void WinnerControllerIsNotNull() {
+        assertThat(WinnerController).isNotNull();
+    }
+
+
 
 }
