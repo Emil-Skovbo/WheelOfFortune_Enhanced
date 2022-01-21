@@ -13,7 +13,7 @@ public class Winner {
 
     private String name;
 
-    @OneToOne
+    @ManyToOne
     private Field field;
 
     public Winner() {
